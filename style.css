@@ -1,0 +1,1258 @@
+/* ============================
+   DENISE PORTFOLIO — style.css
+   Theme: Blue Sky + Koi Fish
+   Font: Nunito (soft, rounded, playful)
+   ============================ */
+
+/* ── Base & Scroll ── */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #e0f2fe;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #38bdf8, #0284c7);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #0ea5e9, #0369a1);
+}
+
+/* ── Navbar ── */
+#navbar {
+    background: transparent;
+}
+#navbar.scrolled {
+    background: rgba(14, 165, 233, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.nav-link:hover,
+.nav-link.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+}
+
+.mobile-menu-panel {
+    background: rgba(14, 165, 233, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ── Hero Section ── */
+.hero-sky-bg {
+    background: linear-gradient(
+        180deg,
+        #0284c7 0%,
+        #0ea5e9 25%,
+        #38bdf8 50%,
+        #7dd3fc 75%,
+        #bae6fd 95%,
+        #f0f9ff 100%
+    );
+}
+
+/* ── Gradient Name Text ── */
+.text-gradient-name {
+    background: linear-gradient(135deg, #ffffff 0%, #bae6fd 50%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Profile Photo ── */
+.profile-photo-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-ring {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: ring-pulse 3s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+    .profile-ring {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+@keyframes ring-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 0.15;
+    }
+}
+
+.profile-img {
+    animation: float-gentle 5s ease-in-out infinite;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes float-gentle {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+/* ── Buttons ── */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    background: white;
+    color: #0284c7;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    background: #f0f9ff;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    border: 2.5px solid rgba(255, 255, 255, 0.6);
+    color: white;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+    background: white;
+    color: #0284c7;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Cloud Elements ── */
+.clouds-wrapper {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    opacity: 0.7;
+}
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud-1 {
+    width: 220px;
+    height: 50px;
+    bottom: 20px;
+    left: -5%;
+    animation: cloud-drift 35s linear infinite;
+}
+.cloud-1::before {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: 30px;
+}
+.cloud-1::after {
+    width: 60px;
+    height: 60px;
+    top: -25px;
+    right: 40px;
+}
+
+.cloud-2 {
+    width: 180px;
+    height: 40px;
+    bottom: 60px;
+    left: 25%;
+    opacity: 0.5;
+    animation: cloud-drift 45s linear infinite;
+    animation-delay: -10s;
+}
+.cloud-2::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 25px;
+}
+.cloud-2::after {
+    width: 50px;
+    height: 50px;
+    top: -20px;
+    right: 30px;
+}
+
+.cloud-3 {
+    width: 260px;
+    height: 55px;
+    bottom: 10px;
+    left: 55%;
+    opacity: 0.6;
+    animation: cloud-drift 40s linear infinite;
+    animation-delay: -20s;
+}
+.cloud-3::before {
+    width: 90px;
+    height: 90px;
+    top: -45px;
+    left: 40px;
+}
+.cloud-3::after {
+    width: 70px;
+    height: 70px;
+    top: -30px;
+    right: 50px;
+}
+
+.cloud-4 {
+    width: 160px;
+    height: 35px;
+    bottom: 80px;
+    left: 80%;
+    opacity: 0.4;
+    animation: cloud-drift 50s linear infinite;
+    animation-delay: -5s;
+}
+.cloud-4::before {
+    width: 55px;
+    height: 55px;
+    top: -25px;
+    left: 20px;
+}
+.cloud-4::after {
+    width: 45px;
+    height: 45px;
+    top: -18px;
+    right: 25px;
+}
+
+.cloud-5 {
+    width: 200px;
+    height: 45px;
+    bottom: 40px;
+    left: 110%;
+    opacity: 0.55;
+    animation: cloud-drift 38s linear infinite;
+    animation-delay: -15s;
+}
+.cloud-5::before {
+    width: 70px;
+    height: 70px;
+    top: -35px;
+    left: 30px;
+}
+.cloud-5::after {
+    width: 55px;
+    height: 55px;
+    top: -22px;
+    right: 35px;
+}
+
+@keyframes cloud-drift {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-120vw); }
+}
+
+/* ── Floating Koi Fish (Global) ── */
+.koi-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.koi {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 2s ease;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+.koi.visible {
+    opacity: 1;
+}
+
+.koi-1 {
+    width: 90px;
+    height: 90px;
+    top: 15%;
+    left: -100px;
+    animation: koi-swim-1 22s ease-in-out infinite;
+    animation-delay: 0s;
+}
+.koi-2 {
+    width: 70px;
+    height: 70px;
+    top: 45%;
+    right: -100px;
+    animation: koi-swim-2 28s ease-in-out infinite;
+    animation-delay: 5s;
+    transform: scaleX(-1);
+}
+.koi-3 {
+    width: 55px;
+    height: 55px;
+    top: 70%;
+    left: -100px;
+    animation: koi-swim-3 25s ease-in-out infinite;
+    animation-delay: 12s;
+}
+.koi-4 {
+    width: 80px;
+    height: 80px;
+    top: 30%;
+    right: -100px;
+    animation: koi-swim-4 30s ease-in-out infinite;
+    animation-delay: 8s;
+    transform: scaleX(-1);
+}
+
+@keyframes koi-swim-1 {
+    0% { transform: translate(-100px, 0) rotate(5deg); opacity: 0; }
+    5% { opacity: 0.7; }
+    50% { transform: translate(calc(50vw), -30px) rotate(-3deg); }
+    95% { opacity: 0.7; }
+    100% { transform: translate(calc(100vw + 100px), 20px) rotate(5deg); opacity: 0; }
+}
+@keyframes koi-swim-2 {
+    0% { transform: translate(100px, 0) scaleX(-1) rotate(-5deg); opacity: 0; }
+    5% { opacity: 0.6; }
+    50% { transform: translate(calc(-50vw), 25px) scaleX(-1) rotate(3deg); }
+    95% { opacity: 0.6; }
+    100% { transform: translate(calc(-100vw - 100px), -15px) scaleX(-1) rotate(-5deg); opacity: 0; }
+}
+@keyframes koi-swim-3 {
+    0% { transform: translate(-100px, 0) rotate(3deg); opacity: 0; }
+    5% { opacity: 0.5; }
+    50% { transform: translate(calc(55vw), -20px) rotate(-4deg); }
+    95% { opacity: 0.5; }
+    100% { transform: translate(calc(100vw + 100px), 10px) rotate(3deg); opacity: 0; }
+}
+@keyframes koi-swim-4 {
+    0% { transform: translate(100px, 0) scaleX(-1) rotate(-3deg); opacity: 0; }
+    5% { opacity: 0.55; }
+    50% { transform: translate(calc(-45vw), 30px) scaleX(-1) rotate(4deg); }
+    95% { opacity: 0.55; }
+    100% { transform: translate(calc(-100vw - 100px), -20px) scaleX(-1) rotate(-3deg); opacity: 0; }
+}
+
+/* Mini koi near elements */
+.koi-mini-float {
+    animation: koi-mini 4s ease-in-out infinite;
+}
+.koi-mini-float-reverse {
+    animation: koi-mini-rev 5s ease-in-out infinite;
+}
+@keyframes koi-mini {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(3deg); }
+    75% { transform: translateY(5px) rotate(-2deg); }
+}
+@keyframes koi-mini-rev {
+    0%, 100% { transform: translateY(0) rotate(0deg) scaleX(-1); }
+    25% { transform: translateY(6px) rotate(-3deg) scaleX(-1); }
+    75% { transform: translateY(-10px) rotate(2deg) scaleX(-1); }
+}
+
+/* ── Bubble Particles ── */
+.bubbles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), rgba(186,230,253,0.2));
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    animation: bubble-rise linear infinite;
+}
+
+@keyframes bubble-rise {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-50vh) translateX(20px) scale(1.1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-110vh) translateX(-10px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* ── Glass Card ── */
+.glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 40px rgba(14, 165, 233, 0.08);
+}
+
+/* ── Info Cards (About) ── */
+.info-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    border: 1px solid rgba(186, 230, 253, 0.5);
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.06);
+    transition: all 0.4s ease;
+}
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(14, 165, 233, 0.12);
+}
+
+.info-card-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #38bdf8, #0284c7);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.25);
+}
+
+/* ── Skill Tags ── */
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+    color: #0369a1;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+.skill-tag:hover {
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+}
+
+/* ── Timeline (Experience) ── */
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #38bdf8, #0284c7);
+    border-radius: 10px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 4px solid #38bdf8;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
+    z-index: 1;
+}
+
+.timeline-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px 28px;
+    border: 1px solid rgba(186, 230, 253, 0.5);
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.06);
+    transition: all 0.4s ease;
+}
+.timeline-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 30px rgba(14, 165, 233, 0.12);
+}
+
+.year-badge {
+    display: inline-block;
+    padding: 4px 16px;
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    color: white;
+    font-weight: 800;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+/* ── Water Ripple Overlay ── */
+.water-ripple-overlay {
+    background:
+        radial-gradient(ellipse at 20% 80%, rgba(56,189,248,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(14,165,233,0.1) 0%, transparent 50%);
+    animation: ripple-shift 8s ease-in-out infinite;
+}
+@keyframes ripple-shift {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.2; }
+}
+
+/* ── Portfolio Cards ── */
+.portfolio-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+.portfolio-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-card-img {
+    position: relative;
+    overflow: hidden;
+}
+.portfolio-card-img img {
+    transition: transform 0.5s ease;
+}
+.portfolio-card:hover .portfolio-card-img img {
+    transform: scale(1.1);
+}
+
+.portfolio-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 132, 199, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.portfolio-card:hover .portfolio-card-overlay {
+    opacity: 1;
+}
+
+.portfolio-view-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: white;
+    color: #0284c7;
+    font-weight: 800;
+    font-size: 0.875rem;
+    border-radius: 50px;
+    transform: translateY(15px);
+    transition: transform 0.4s ease;
+}
+.portfolio-card:hover .portfolio-view-btn {
+    transform: translateY(0);
+}
+
+/* ── Contact Section ── */
+.contact-circle {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 40px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 50px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+.contact-circle::before {
+    content: '';
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: ring-pulse 3s ease-in-out infinite;
+}
+
+.contact-circle-inner {
+    text-align: center;
+    padding: 20px;
+}
+
+/* ── Social Links ── */
+.social-link {
+    width: 54px;
+    height: 54px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+.social-link:hover {
+    background: white;
+    color: #0284c7;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: white;
+}
+
+/* ── Thanks Text ── */
+.thanks-text {
+    letter-spacing: 2px;
+}
+
+/* ── Sparkle Animation ── */
+.sparkle-anim {
+    animation: sparkle 3s ease-in-out infinite;
+}
+.sparkle-anim.delay-1 { animation-delay: 0.5s; }
+.sparkle-anim.delay-2 { animation-delay: 1s; }
+.sparkle-anim.delay-3 { animation-delay: 1.5s; }
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.8; transform: scale(1.2) rotate(15deg); }
+}
+
+/* ── Scroll Reveal Animations ── */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up {
+    transform: translateY(60px);
+}
+.reveal-left {
+    transform: translateX(-60px);
+}
+.reveal-right {
+    transform: translateX(60px);
+}
+
+.reveal-up.revealed,
+.reveal-left.revealed,
+.reveal-right.revealed {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Delay classes for staggered animations */
+.delay-1 { transition-delay: 0.15s !important; }
+.delay-2 { transition-delay: 0.3s !important; }
+.delay-3 { transition-delay: 0.45s !important; }
+
+/* ── Letter Spacing Animation ── */
+.letter-spacing-anim {
+    animation: letter-breathe 4s ease-in-out infinite;
+}
+@keyframes letter-breathe {
+    0%, 100% { letter-spacing: 3px; }
+    50% { letter-spacing: 6px; }
+}
+
+/* =========================================
+   ANIME SKY & TRAFFIC SIGNS (REFERENCE ART)
+   ========================================= */
+
+/* Power Lines (Kabel Listrik Melintang) */
+.powerlines-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.powerlines-svg {
+    width: 100%;
+    height: auto;
+    min-height: 120px;
+}
+
+/* Traffic Sign Containers with Parallax */
+.traffic-sign-hero {
+    position: absolute;
+    right: 5%;
+    top: 18%;
+    width: 220px;
+    max-width: 38vw;
+    z-index: 3;
+    pointer-events: none;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+    transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+@media (min-width: 1024px) {
+    .traffic-sign-hero {
+        right: 8%;
+        top: 15%;
+        width: 260px;
+    }
+}
+
+/* Railroad Crossing Lights Alternate Blinking */
+.rail-light-left {
+    animation: railBlinkLeft 1.4s ease-in-out infinite;
+}
+.rail-light-right {
+    animation: railBlinkRight 1.4s ease-in-out infinite;
+}
+
+@keyframes railBlinkLeft {
+    0%, 48% { fill: #ef4444; filter: drop-shadow(0 0 8px #ef4444); }
+    52%, 100% { fill: #7f1d1d; filter: none; }
+}
+@keyframes railBlinkRight {
+    0%, 48% { fill: #7f1d1d; filter: none; }
+    52%, 100% { fill: #ef4444; filter: drop-shadow(0 0 8px #ef4444); }
+}
+
+/* Traffic Sign 2: Yellow Diamond Fork (About Section) */
+.traffic-sign-about {
+    position: absolute;
+    left: -20px;
+    bottom: 30px;
+    width: 160px;
+    z-index: 1;
+    pointer-events: none;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.1));
+}
+
+@media (min-width: 768px) {
+    .traffic-sign-about {
+        left: 20px;
+        bottom: 40px;
+        width: 200px;
+    }
+}
+
+/* Traffic Sign 3: Japanese Round / Pedestrian Sign (Portfolio / Music) */
+.traffic-sign-portfolio {
+    position: absolute;
+    right: 2%;
+    top: 10%;
+    width: 150px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.85;
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.12));
+}
+
+/* Doodle Text & Kaomoji Elements */
+.doodle-kaomoji {
+    font-family: 'Nunito', sans-serif;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+    user-select: none;
+    pointer-events: none;
+}
+
+.doodle-swirl-svg {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Floating animation for doodles */
+.float-doodle {
+    animation: floatDoodle 4s ease-in-out infinite;
+}
+@keyframes floatDoodle {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+/* =========================================
+   ABOUT ME: PROFILE PHOTO CARD
+   ========================================= */
+.about-photo-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 28px;
+    padding: 24px;
+    box-shadow: 0 16px 45px rgba(14, 165, 233, 0.12);
+    position: relative;
+    overflow: visible;
+}
+
+.about-photo-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+    .about-photo-wrapper {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+.about-photo-img {
+    width: 100%;
+    height: 100%;
+    object-cover: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 10px 30px rgba(2, 132, 199, 0.25);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+.about-photo-card:hover .about-photo-img {
+    transform: scale(1.03);
+}
+
+.about-photo-aura {
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(245, 166, 35, 0.3));
+    z-index: 1;
+    animation: auraPulse 4s ease-in-out infinite;
+}
+
+@keyframes auraPulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.06); opacity: 0.9; }
+}
+
+.status-badge-about {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: #e0f2fe;
+    color: #0284c7;
+    font-size: 0.75rem;
+    font-weight: 800;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(14, 165, 233, 0.15);
+}
+
+.status-dot-green {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #10b981;
+    animation: pulseDot 2s infinite;
+}
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* =========================================
+   MUSIC PLAYER: WHITE GLASS DISC SECTION
+   ========================================= */
+.music-section {
+    background: linear-gradient(180deg, #7dd3fc 0%, #38bdf8 30%, #0284c7 85%, #0369a1 100%);
+    position: relative;
+}
+
+.music-glass-panel {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    border-radius: 32px;
+    padding: 32px;
+    box-shadow: 0 25px 60px rgba(3, 105, 161, 0.25);
+}
+
+@media (min-width: 768px) {
+    .music-glass-panel {
+        padding: 44px;
+    }
+}
+
+/* White Glass Disc (Translucent Frosted Vinyl) */
+.disc-turntable-box {
+    position: relative;
+    width: 270px;
+    height: 270px;
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .disc-turntable-box {
+        width: 310px;
+        height: 310px;
+    }
+}
+
+/* Outer Glow Ring behind Disc */
+.disc-ambient-glow {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(186, 230, 253, 0.25) 50%, transparent 70%);
+    filter: blur(15px);
+    z-index: 1;
+}
+
+/* The White Glass Disc */
+.white-glass-disc {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    z-index: 2;
+    /* Frosted translucent white glass styling */
+    background: 
+        radial-gradient(circle at center, transparent 20%, rgba(255, 255, 255, 0.2) 20.5%, transparent 21%),
+        radial-gradient(circle at center, transparent 32%, rgba(255, 255, 255, 0.18) 32.5%, transparent 33%),
+        radial-gradient(circle at center, transparent 45%, rgba(255, 255, 255, 0.22) 45.5%, transparent 46%),
+        radial-gradient(circle at center, transparent 58%, rgba(255, 255, 255, 0.18) 58.5%, transparent 59%),
+        radial-gradient(circle at center, transparent 72%, rgba(255, 255, 255, 0.2) 72.5%, transparent 73%),
+        radial-gradient(circle at center, transparent 85%, rgba(255, 255, 255, 0.24) 85.5%, transparent 86%),
+        radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 60%, rgba(255, 255, 255, 0.5) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 
+        0 15px 35px rgba(2, 132, 199, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.6),
+        inset 0 0 4px rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.4s ease;
+}
+
+@media (min-width: 640px) {
+    .white-glass-disc {
+        width: 285px;
+        height: 285px;
+    }
+}
+
+/* Vinyl Specular Gloss Sheen Reflection */
+.white-glass-disc::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 45deg,
+        rgba(255, 255, 255, 0.3) 0deg,
+        transparent 60deg,
+        rgba(255, 255, 255, 0.25) 120deg,
+        transparent 180deg,
+        rgba(255, 255, 255, 0.3) 240deg,
+        transparent 300deg,
+        rgba(255, 255, 255, 0.3) 360deg
+    );
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+/* Center Disc Label (Aesthetic Artwork Label) */
+.disc-center-label {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #f5a623 100%);
+    border: 3px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+}
+
+.disc-center-hole {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #0284c7;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Vinyl Spinning Animation */
+.white-glass-disc.spinning {
+    animation: spinVinyl 5s linear infinite;
+}
+
+@keyframes spinVinyl {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Turntable Tonearm (Jarum Piringan) */
+.turntable-tonearm {
+    position: absolute;
+    top: -10px;
+    right: 5px;
+    width: 80px;
+    height: 140px;
+    z-index: 5;
+    pointer-events: none;
+    transform-origin: 65px 20px;
+    transform: rotate(-32deg);
+    transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.turntable-tonearm.playing {
+    transform: rotate(0deg);
+}
+
+/* Music Equalizer Visualizer */
+.equalizer-bar-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 32px;
+}
+
+.equalizer-bar {
+    width: 5px;
+    background: white;
+    border-radius: 3px;
+    height: 6px;
+    transition: height 0.2s ease;
+}
+
+.equalizer-bar-container.active .equalizer-bar:nth-child(1) { animation: eqBar 0.9s ease-in-out infinite alternate; }
+.equalizer-bar-container.active .equalizer-bar:nth-child(2) { animation: eqBar 0.7s ease-in-out infinite alternate 0.2s; }
+.equalizer-bar-container.active .equalizer-bar:nth-child(3) { animation: eqBar 1.1s ease-in-out infinite alternate 0.1s; }
+.equalizer-bar-container.active .equalizer-bar:nth-child(4) { animation: eqBar 0.8s ease-in-out infinite alternate 0.3s; }
+.equalizer-bar-container.active .equalizer-bar:nth-child(5) { animation: eqBar 1.0s ease-in-out infinite alternate 0.15s; }
+
+@keyframes eqBar {
+    0% { height: 6px; }
+    100% { height: 30px; }
+}
+
+/* Music Controls */
+.music-btn-play {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: white;
+    color: #0284c7;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 0 5px rgba(255, 255, 255, 0.25);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.music-btn-play:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25), 0 0 0 8px rgba(255, 255, 255, 0.35);
+}
+.music-btn-play:active {
+    transform: scale(0.96);
+}
+
+.music-ctrl-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+.music-ctrl-btn:hover,
+.music-ctrl-btn.active {
+    background: white;
+    color: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Progress Slider */
+.music-seek-bar {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+}
+.music-seek-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease;
+}
+.music-seek-bar::-webkit-slider-thumb:hover {
+    transform: scale(1.25);
+}
+
+/* Playlist Chips */
+.playlist-chip {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    color: white;
+    font-size: 0.825rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.playlist-chip:hover,
+.playlist-chip.active {
+    background: white;
+    color: #0284c7;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Responsive Tweaks ── */
+@media (max-width: 768px) {
+    .koi-1, .koi-2, .koi-3, .koi-4 {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .cloud-1, .cloud-2, .cloud-3, .cloud-4, .cloud-5 {
+        transform: scale(0.6);
+    }
+
+    .contact-circle {
+        width: 160px;
+        height: 160px;
+    }
+    .contact-circle::before {
+        width: 190px;
+        height: 190px;
+    }
+
+    .thanks-text {
+        letter-spacing: 1px;
+    }
+
+    .profile-ring {
+        width: 220px;
+        height: 220px;
+    }
+
+    .traffic-sign-hero {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin: 24px auto 0;
+        width: 180px;
+    }
+}
+
+/* ── Prefers Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
